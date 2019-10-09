@@ -91,24 +91,25 @@ BEGIN
         read_end <= '0';
         finish_end <= '0';
     ELSIF rising_edge(clk) THEN
-	CASE curr_state IS
-	    WHEN init =>
-                data_out <= '0';
-                init_end <= '1';
-	    WHEN write =>
-                data_out <= '1';
-                write_end <= '1';
-	    WHEN read =>
-                data_out <= '1';
-                read_end <= '1';
-	    WHEN finish =>
-                data_out <= '0';
-                finish_end <= '1';
-	    WHEN OTHERS =>
-                data_out <= '1';
-
-	    END CASE;
+		CASE curr_state IS
+			WHEN init =>
+				data_out <= '0';
+				init_end <= '1';
+			WHEN write =>
+				data_out <= '1';
+				write_end <= '1';
+			WHEN read =>
+				data_out <= '1';
+				read_end <= '1';
+			WHEN finish =>
+				data_out <= '0';
+				finish_end <= '1';
+			WHEN OTHERS =>
+				data_out <= '1';
+				
+		END CASE;
     END IF;
+
 END PROCESS;
 
 end Behavioral;
